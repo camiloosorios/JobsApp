@@ -7,6 +7,25 @@ use Livewire\Component;
 
 class MostrarVacantes extends Component
 {
+
+    //Se configuran los métodos que escuchan un evento
+    // protected $listeners = ['prueba'];
+
+    // public function prueba()
+    // {
+
+    // }
+    
+    protected $listeners = ['eliminarVacante'];
+
+    public function eliminarVacante(Vacante $vacante)
+    {
+
+        //Borramos la publicación
+        $vacante->delete();
+
+    }
+
     public function render()
     {
         //Consultar vacantes del usuario con paginación

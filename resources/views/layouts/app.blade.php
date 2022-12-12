@@ -34,6 +34,9 @@
                 {{ $slot }}
             </main>
         </div>
+        {{-- Se cargan los scripts de livewire --}}
         @livewireScripts
+        {{-- Se carga el script de SweetAlert2 desde mostrarVacantes --}}
+        @stack('scripts')
     </body>
 </html>
