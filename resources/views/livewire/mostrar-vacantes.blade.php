@@ -9,7 +9,7 @@
 
             <div class="flex flex-col md:flex-row items-stretch gap-3 items-center mt-5 md:mt-0 text-center">
                 <a href="#" class="bg-slate-800 py-2 px-4 rounded-lg text-white text-xs font-bold">Candidatos</a>
-                <a href="#" class="bg-blue-800 py-2 px-4 rounded-lg text-white text-xs font-bold">Editar</a>
+                <a href="{{ route('vacantes.edit', $vacante->id) }}" class="bg-blue-800 py-2 px-4 rounded-lg text-white text-xs font-bold">Editar</a>
                 <a href="#" class="bg-red-600 py-2 px-4 rounded-lg text-white text-xs font-bold">Eliminar</a>
             </div>
         </div>
