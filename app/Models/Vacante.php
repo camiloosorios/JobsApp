@@ -9,6 +9,9 @@ class Vacante extends Model
 {
     use HasFactory;
 
+    //Defirnir ultimo día como una fecha
+    protected $dates = ['ultimo_dia'];
+
     protected $fillable = [
         'titulo',
         'descripcion',
