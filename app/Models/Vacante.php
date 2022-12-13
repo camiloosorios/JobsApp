@@ -22,4 +22,17 @@ class Vacante extends Model
         'imagen',
         'user_id'
     ];
+
+    //Creamos relación entre categoria_id y la tabla Categorias
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class); //categoria_id belongsTo Categorias
+    }
+
+    //Creamos relación entre salario_id y la tabla Salarios
+    public function salario()
+    {
+        return $this->belongsTo(Salario::class); //salario_id belogsTo Salarios
+    }
+
 }
