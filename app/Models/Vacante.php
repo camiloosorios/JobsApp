@@ -35,4 +35,9 @@ class Vacante extends Model
         return $this->belongsTo(Salario::class); //salario_id belogsTo Salarios
     }
 
+    public function candidatos()
+    {
+        return $this->hasMany(Candidato::class);
+    }
+
 }
