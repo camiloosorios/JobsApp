@@ -37,6 +37,11 @@ class PostularVacante extends Component
             'user_id' => auth()->user()->id,
             'cv' => $datos['cv']
         ]);
+
+        //Mostrar mensaje de que se postulo correctamente
+        session()->flash('mensaje', 'Se postulo correctamente a la vacante');
+
+        return redirect()->back();
     }
 
     public function render()
