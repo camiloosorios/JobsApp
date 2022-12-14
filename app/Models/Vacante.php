@@ -50,7 +50,9 @@ class Vacante extends Model
     //Validar postulacion
     public function validarPostulacion($vacante)
     {
-        return Candidato::where('user_id', auth()->user()->id)->where('vacante_id', $vacante->id)->count() > 0 ? true : false;
+        return Candidato::where('user_id', auth()->user()->id)
+                        ->where('vacante_id', $vacante->id)->count() > 0 
+                        ? true : false;
     }
 
 }

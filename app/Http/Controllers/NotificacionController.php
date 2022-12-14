@@ -14,6 +14,14 @@ class NotificacionController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //
+        //Traer notificaciones del usuario para pasar a la vista
+        $notificaciones = auth()->user()->unreadNotifications;
+
+        //Limpiar notificaiones leidas
+        auth()->user()->unreadNotifications->markAsRead();
+
+        return view('notificaciones.index', [
+            'notificaciones' => $notificaciones
+        ]);
     }
 }
