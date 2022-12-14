@@ -16,9 +16,11 @@ class NuevoCandidato extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($vacante_id, $nombre_vacante, $usuario_id)
     {
-        //
+        $this->vacante_id = $vacante_id;
+        $this->nombre_vacante = $nombre_vacante;
+        $this->usuario_id = $usuario_id;
     }
 
     /**
@@ -29,7 +31,8 @@ class NuevoCandidato extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        //Envia email y almacena en la base de datos
+        return ['mail', 'database'];
     }
 
     /**
@@ -40,15 +43,21 @@ class NuevoCandidato extends Notification
      */
     public function toMail($notifiable)
     {
+        $url = url('/notificaciones');
+
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('Has recibido un nuevo candidato en tu vacante ' . $this->nombre_vacante)
+                    ->action('Ver notificaciones', $url)
+                    ->line('Gracias por utilizar JobsApp');
     }
 
     //Almacena las notificaciones en la DB
     public function toDatabase($notifiable)
     {
-
+        return [
+            'vacante_id' => $this->vacante_id,
+            'nombreVacante' => $this->nombre_vacante,
+            'usuario_id' => $this->usuario_id
+        ];
     }
 }

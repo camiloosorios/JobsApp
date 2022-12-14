@@ -6,20 +6,26 @@
             {{ session('mensaje') }}
         </div>
     @else
-        <form class="w-96 mt-5" wire:submit.prevent='postularme'>
-            <div class="mb-4">
-                <x-input-label for="cv" value="{{__('Hoja de vida (PDF)')}}"/>
-                <x-text-input   id="cv" 
-                                class="block mt-1 w-full" 
-                                wire:model="cv"
-                                type="file" 
-                                accept=".pdf"/>
-                @error('cv')
-                    <x-input-error :messages="$errors->get('cv')" class="mt-2" />
-                @enderror
+        @if ($vacante->validarPostulacion($vacante))
+            <div class="uppercase border-green-600 bg-green-100 text-green-600 font-bold p-2 my-5 text-sm">
+                <p>Ya postulaste a esta oferta</p>
             </div>
-            <x-primary-button class="my-5">{{__('Postularme')}}</x-primary-button>
-        </form>
+        @else
+            <form class="w-96 mt-5" wire:submit.prevent='postularme'>
+                <div class="mb-4">
+                    <x-input-label for="cv" value="{{__('Hoja de vida (PDF)')}}"/>
+                    <x-text-input   id="cv" 
+                    class="block mt-1 w-full" 
+                    wire:model="cv"
+                    type="file" 
+                    accept=".pdf"/>
+                    @error('cv')
+                        <x-input-error :messages="$errors->get('cv')" class="mt-2" />
+                    @enderror
+                </div>
+                <x-primary-button class="my-5">{{__('Postularme')}}</x-primary-button>
+            </form>
+        @endif
     @endif
 
 </div>

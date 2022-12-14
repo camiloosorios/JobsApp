@@ -35,9 +35,22 @@ class Vacante extends Model
         return $this->belongsTo(Salario::class); //salario_id belogsTo Salarios
     }
 
+    //Creamos relación entre vacantes y candidatos
     public function candidatos()
     {
         return $this->hasMany(Candidato::class);
+    }
+
+    public function reclutador()
+    {
+        return $this->belongsTo(User::class, 'user_id');  //Una vacante belongsTo user
+    }
+
+
+    //Validar postulacion
+    public function validarPostulacion($vacante)
+    {
+        return Candidato::where('user_id', auth()->user()->id)->where('vacante_id', $vacante->id)->count() > 0 ? true : false;
     }
 
 }
