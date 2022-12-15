@@ -1,4 +1,7 @@
 <div>
+
+    <livewire:filtar-vacantes>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto">
             <h3 class="text-center md:text-start font-extrabold text-4xl text-gray-700 mb-6">Nuestras vacantes disponibles</h3>
