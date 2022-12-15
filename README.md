@@ -1,66 +1,63 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<center><img src="public/img/logo-jobsapp.png"></img></center> 
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+``v1.0.0``
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## **Información General**
 
-## Learning Laravel
+Jobs**APP** es una aplicación web desarrollada en [_**Laravel 9**_](https://laravel.com/docs/9.x) con el fin de mostrar algunas de las capacidades de este _Framework_, utilizando **MVC** (Modelo Vista Controlador), realizando _**CRUD**_ en una base de datos _SQL_, utilizando autenticación por medio de Breeze, componentes con [_**livewire**_](https://laravel-livewire.com/docs/2.x/installation), alertas personalizadas con [_**SweetAlert2**_](https://sweetalert2.github.io/), manteneniendo una sesión, enviando Emails de verificación y de confirmación, notificaciones etc. Los estilos de la aplicación fueron realizados por medio de [**Tailwind CSS**](https://tailwindcss.com/docs/installation), uno de los frameworks de CSS mas populares. Esta aplicación web cuenta con algunas funcionalidades presentes en algunas páginas de ofertas de empleo tales como:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<br>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+* **Registro de Usuario:** Almacena la información en una base de datos _SQL_, encriptando la contraseña con un _hash_ de una sola vía, en el registro se escoge entre 2 tipos de roles (Empleado o Reclutador).
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* **Inicio de Sesión:** Valida que las credenciales ingresadas coincidan con algun registro de la base de datos y manteniene la sesión.
 
-## Laravel Sponsors
+* **Publicar Vacantes:** Los usuarios con rol Reclutador podrán realizar la publicación de vacantes para que puedan postular los usuarios con rol Empleado. Ademas podrán editar o eliminar sus vacantes.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+* **Notificaciones:** Cuando un Empleado postule a una oferta, el Reclutador recibirá una notificación via Email y en el panel de notificaciones de la aplicación.
 
-### Premium Partners
+* **Buscar una Vacante:** Los usuarios con rol Empleado podrán postular a las vacantes que se encuentran listadas en la pagina principal y hacer sus propias busquedas con filtros.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+* **Postular a una vacante:** Los usuarios con rol empleado podrán postular a las vacantes adjuntando su hoja de vida (CV).
 
-## Contributing
+---
+<br>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## **Ambientación**
+<br>
 
-## Code of Conduct
+1. Clonar repositorio.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+2. Abrir repositorio en _CMD, Powershell_ o _Consola de comandos_ e installar las dependecias de 
+[**_Composer_**](https://getcomposer.org/doc/).
+```
+    composer install
+```
+3. Instalar las dependecias de [**_Node.JS_**](https://nodejs.org/es/docs/).
+```
+    npm install
+```
 
-## Security Vulnerabilities
+4. Clonar el archivo ``.env.example`` y renombar por ``.env``.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+5. Configurar las variables de entorno en el archivo ``.env``.
 
-## License
+6. Instalar e iniciar los servicios de base de datos y el servidor apache incluidos en [**XAMP(v8.1.12)**](https://www.apachefriends.org/download.html).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+7. Ejecutar las migraciones para crear tablas (_En desarrollo_).
+```
+    php artisan migrate
+```
+
+7. Ejecutar los seeders para llenar las tablas de salarios y categorias (_En desarrollo_).
+```
+    php artisan db:seed
+```
+
+8. Levantar servidor local.
+```
+    php artisan serve
+```
