@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Crear Vacante') }}
+            {{ __('Mis Notificaciones') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <h1 class="text-2xl font-bold text-center mb-10 mt-5">Publicar Vacante</h1>
+                <h1 class="text-2xl font-bold text-center mb-10 mt-5">Notificaciones</h1>
                 @forelse ($notificaciones as $notificacion)
                 <div class="p-5 border divide-y divide-gray-200 lg:flex lg:justify-between lg:items-center">
                     <div>                    
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                     @empty
-                    <p class="text-center text-gray-600">No hay notificaciones nuevas</p>
+                    <p class="text-center text-gray-600 mb-8">No hay notificaciones nuevas</p>
                 </div>
                 @endforelse
         </div>

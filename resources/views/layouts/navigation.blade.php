@@ -50,10 +50,6 @@
                         </x-slot>
                         
                         <x-slot name="content">
-                            <x-dropdown-link :href="route('profile.edit')">
-                                {{ __('Perfil') }}
-                            </x-dropdown-link>
-                            
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -95,14 +91,16 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        @auth            
-            <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
-                    {{ __('Mis Vacantes') }}
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
-                    {{ __('Crear Vacantes') }}
-                </x-responsive-nav-link>
+        @auth       
+        <div class="pt-2 pb-3 space-y-1">
+                @can('create', App\Models\Vacante::class)                        
+                    <x-responsive-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
+                        {{ __('Mis Vacantes') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
+                        {{ __('Crear Vacantes') }}
+                    </x-responsive-nav-link>
+                @endcan     
                 @if (auth()->user()->role == 2)
                 <div class="p-3 flex justify-start items-center">                    
                     <a href="{{route('notificaciones')}}" class="w-7 h-7 bg-indigo-600 hover:bg-indigo-800 text-white flex flex-col justify-center items-center rounded-full">
@@ -123,10 +121,6 @@
                 </div>
 
                 <div class="mt-3 space-y-1">
-                    <x-responsive-nav-link :href="route('profile.edit')">
-                        {{ __('Perfil') }}
-                    </x-responsive-nav-link>
-
                     <!-- Authentication -->
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
